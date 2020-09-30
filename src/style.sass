@@ -1,0 +1,66 @@
+$main: #00A7E5
+
+*, *::before, *::after
+  box-sizing: border-box
+
+html, body, .container, #map
+  width: 100%
+
+body
+  background: #F5F5F5
+
+hr
+  margin-bottom: 1rem
+  width: 80%
+  border: 0
+  border-top: 1px solid #CCC
+
+h6
+  font-size: 1rem
+  a
+    color: $main
+
+.container
+  padding-top: 3vh
+  padding-right: 15px
+  padding-left: 15px
+
+.btn
+  display: inline-block
+  margin-right: .25rem
+  margin-left: .25rem
+  margin-bottom: .5rem
+  padding: .25rem 1rem
+  line-height: 1.5
+  text-align: center
+  vertical-align: middle
+  cursor: pointer
+  user-select: none
+  border: 1px solid $main
+  border-radius: .5rem
+  text-decoration: none
+  color: $main
+  transition: background .2s, color .2s
+  &:hover
+    background: $main
+    color: #FFF
+  &:focus
+    outline: 0
+  &.disabled
+    opacity: .3
+    pointer-events: none
+
+.info-box
+  h1, h6
+    text-align: center
+
+.btn-group
+  display: flex
+  justify-content: center
+  margin-bottom: 1rem
+  @media screen and ( max-width: 768px )
+    flex-wrap: wrap
+    
+
+#map
+  height: 50vh

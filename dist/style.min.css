@@ -26,8 +26,6 @@ h6 a {
 
 .container {
   padding-top: 3vh;
-  padding-right: 15px;
-  padding-left: 15px;
 }
 
 .btn {
@@ -78,5 +76,5 @@ h6 a {
 }
 
 #map {
-  height: 50vh;
+  height: 100vh;
 }

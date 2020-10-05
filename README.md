@@ -1,4 +1,4 @@
-# OpenStreetMap + Leaflet 學習筆記：建地圖、marker、事件、換圖層
+# OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層
 
 Demo：[demo](https://letswritetw.github.io/letswrite-leaflet-osm-basic/)
 

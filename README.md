@@ -2,4 +2,4 @@
 
 Demo：[demo](https://letswritetw.github.io/letswrite-leaflet-osm-basic/)
 
-筆記文：[Let's Write](https://letswrite.tw/leaflet-osm-basic/)
+筆記文：[Let's Write](https://www.letswrite.tw/leaflet-osm-basic/)

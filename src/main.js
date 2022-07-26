@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let center = [24.9983469, 121.5810358]; // 預設中心點為台北市動物園
 
   // 跟使用者要位置
+  // 使用者同意給位置，center 設為使用者座標
   function successGPS(position) {
     const lat = position.coords.latitude;
     const lng = position.coords.longitude;
@@ -26,13 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function triggerLeaflet() {
 
     // *** 放置地圖
-    const map = L.map('map', {
-      center: center,
-      zoom: 17, // 0-18
-      attributionControl: true, // 是否秀出 leaflet
+    let zoom = 17; // 0-18
+    let map = L.map('map').setView(center, zoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap', // 商用時必須要有版權出處
       zoomControl: true , // 是否秀出 - + 按鈕
-    });
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    }).addTo(map);
 
 
 

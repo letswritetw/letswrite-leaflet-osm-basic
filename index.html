@@ -1,54 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層 - August - Let's Write</title>
-    <link rel="canonical" href="https://letswritetw.github.io/letswrite-leaflet-osm-basic/"/>
-    <meta property="og:url" content="https://letswritetw.github.io/letswrite-leaflet-osm-basic/"/>
-    <meta property="fb:app_id" content="911000986339138"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:site_name" content="Let's Write"/>
-    <meta property="og:title" content="OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層 - August - Let's Write"/>
-    <meta itemprop="name" content="OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層 - August - Let's Write"/>
-    <meta name="description" content="OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層"/>
-    <meta property="og:description" content="OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層"/>
-    <meta itemprop="description" content="OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層"/>
-    <meta itemprop="image" content="https://letswritetw.github.io/letswrite-leaflet-osm-basic/fb.jpg?v=1.0.2"/>
-    <meta property="og:image" content="https://letswritetw.github.io/letswrite-leaflet-osm-basic/fb.jpg?v=1.0.2"/>
-    <meta property="og:image:width" content="1200"/>
-    <meta property="og:image:height" content="630"/>
-    <meta property="og:image:alt" content="OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層"/>
-    <link rel="shortcut icon" href="https://letswritetw.github.io/letswritetw/dist/img/logo_512.png"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
-    <link rel="stylesheet" href="dist/style.min.css"/>
-    <!-- Google Tag Manager-->
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-PGQ9WQT');
-    </script>
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript)-->
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGQ9WQT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <div class="container">
-      <div class="info-box">
-        <h1>Leaflet.js 繪製 Open Street Map</h1>
-        <h6>筆記文：<a href="https://letswrite.tw/leaflet-osm-basic/">Let's Write</a></h6>
-        <hr/>
-        <div class="btn-group"><a class="btn" id="put-markers" href="#">連續放置 Markers</a><a class="btn" id="zoom-out" href="#">Zoom Out</a><a class="btn" id="zoom-in" href="#">Zoom In</a></div>
-        <div class="btn-group"><a class="js-change-layer btn" href="#" data-layer="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png">OpenStreetMap.DE</a><a class="js-change-layer btn" href="#" data-layer="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png">OpenStreetMap.HOT</a><a class="js-change-layer btn" href="#" data-layer="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png">OpenTopoMap</a></div>
-      </div>
-      <div id="map"></div>
-    </div>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="dist/main.min.js"></script>
-  </body>
-</html>
+<!DOCTYPE html><html lang="zh-TW"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><title>OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層 - August - Let's Write</title><link rel="canonical" href="https://letswritetw.github.io/letswrite-leaflet-osm-basic/"/><meta property="og:url" content="https://letswritetw.github.io/letswrite-leaflet-osm-basic/"/><meta property="fb:app_id" content="911000986339138"/><meta property="og:type" content="website"/><meta property="og:site_name" content="Let's Write"/><meta property="og:title" content="OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層 - August - Let's Write"/><meta itemprop="name" content="OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層 - August - Let's Write"/><meta name="description" content="OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層"/><meta property="og:description" content="OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層"/><meta itemprop="description" content="OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層"/><meta itemprop="image" content="https://letswritetw.github.io/letswrite-leaflet-osm-basic/fb.jpg?v=1.0.2"/><meta property="og:image" content="https://letswritetw.github.io/letswrite-leaflet-osm-basic/fb.jpg?v=1.0.2"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:alt" content="OSM + Leaflet 學習筆記1：建地圖、marker、事件、換圖層"/><link rel="shortcut icon" href="https://letswritetw.github.io/letswritetw/dist/img/logo_512.png"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/><link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/><link rel="stylesheet" href="dist/style.min.css"/><!-- Google Tag Manager--><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PGQ9WQT');</script></head><body><!-- Google Tag Manager (noscript)--><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGQ9WQT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div class="container"><div class="info-box"><h1>Leaflet.js 繪製 Open Street Map</h1><h6>筆記文：<a href="https://letswrite.tw/leaflet-osm-basic/">Let's Write</a></h6><hr/><div class="btn-group"><a class="btn" id="put-markers" href="#">連續放置 Markers</a><a class="btn" id="zoom-out" href="#">Zoom Out</a><a class="btn" id="zoom-in" href="#">Zoom In</a></div><div class="btn-group"><a class="js-change-layer btn" href="#" data-layer="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png">OpenStreetMap.DE</a><a class="js-change-layer btn" href="#" data-layer="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png">OpenStreetMap.HOT</a><a class="js-change-layer btn" href="#" data-layer="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png">OpenTopoMap</a></div></div><div id="map"></div></div><script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script><script src="dist/main.min.js"></script></body></html>
